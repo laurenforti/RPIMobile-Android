@@ -37,6 +37,7 @@ public class MainActivity extends SherlockFragmentActivity {
     private Fragment athleticsFragment = new AthleticsFragment();  //Formerly Fragment4
     private Fragment eventsFragment = new EventsFragment();  //Formerly Fragment5
     private Fragment mapFragment = new MapFragment();
+    private Fragment shuttleFragment = new ShuttleFragment();
     //private Fragment exampleFragment = new ExampleFragment();  //Formerly Fragment6
     
   //Initial function
@@ -51,13 +52,13 @@ public class MainActivity extends SherlockFragmentActivity {
         setContentView(R.layout.activity_main);
         
         // Generate title array
-        title = new String[] { "Weather", "Laundry","Twitter","Athletics","Events",/* "Shuttles","Directory"
-        		,"TV Listings","Building Hours", */"Map", "Videos" };
+        title = new String[] { "Weather", "Laundry","Twitter","Athletics","Events", /*"Directory"
+        		,"TV Listings","Building Hours", */"Map", "Videos", "Shuttles" };
  
         // Generate icon array
         icon = new int[] { R.drawable.ic_wm_weather, R.drawable.ic_wm_laundry, R.drawable.ic_wm_twitter, R.drawable.ic_wm_athletics,
-        		R.drawable.ic_wm_event,/* R.drawable.ic_wm_shuttle, R.drawable.ic_wm_directory, R.drawable.ic_wm_tv, 
-        		R.drawable.ic_wm_map, */ R.drawable.ic_wm_map, R.drawable.ic_wm_video };
+        		R.drawable.ic_wm_event, /*R.drawable.ic_wm_directory, R.drawable.ic_wm_tv, 
+        		R.drawable.ic_wm_map, */ R.drawable.ic_wm_map, R.drawable.ic_wm_video, R.drawable.ic_wm_shuttle };
  
         // Locate DrawerLayout in drawer_main.xml
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -207,10 +208,7 @@ public class MainActivity extends SherlockFragmentActivity {
         	ft.replace(R.id.content_frame, mapFragment);
         	break;
         //these are the future items. They will be uncommented as they are implemented	
-        	
- /*       case 7: //Shuttles
-        	Toast.makeText(this, "Shuttles selected", Toast.LENGTH_SHORT).show();
-        	break;
+        /*
         case 8: //Directory
         	Toast.makeText(this, "Directory selected", Toast.LENGTH_SHORT).show();
         	break;
@@ -224,8 +222,11 @@ public class MainActivity extends SherlockFragmentActivity {
         	//the Youtube feed just opens the external youtube application
         	Intent i = YouTubeIntents.createUserIntent(this, "rpirensselaer");
         	startActivity(i);
-        	break;
-        
+        	break;  	
+        case 7: //Shuttles
+         	ft.replace(R.id.content_frame, shuttleFragment);
+         	break;
+       
         }
         
         ft.commit();
